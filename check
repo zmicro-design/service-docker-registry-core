@@ -1,0 +1,19 @@
+#!/bin/bash
+
+service::config_set() {
+  config::check_or_set $@ $SERVICE_CONFIG
+}
+
+check() {
+  if [ "$DEBUG" = "true" ]; then
+    log::info "[DEBUG][service]: $SERVICE_CONFIG"
+    cat $SERVICE_CONFIG
+  fi
+
+  service::config_set SERVICE_DOCKER_REGISTRY_CORE_OSS_ACCESS_KEY text
+  service::config_set SERVICE_DOCKER_REGISTRY_CORE_OSS_ACCESS_SECRET text
+  service::config_set SERVICE_DOCKER_REGISTRY_CORE_OSS_REGION text
+  service::config_set SERVICE_DOCKER_REGISTRY_CORE_OSS_BUCKET text
+}
+
+check $@
