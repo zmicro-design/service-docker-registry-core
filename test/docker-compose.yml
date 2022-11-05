@@ -1,18 +1,8 @@
 version: '3.7'
 
 services:
-  docker-registry:
-    restart: always
-    image: whatwewant/nginx-basic-auth:v0.0.5
-    environment:
-      CLIENT_MAX_BODY_SIZE: 0
-      PROXY_PASS: http://docker-registry-core-service:5000
-      BASIC_AUTH_USERNAME: ${SERVICE_DOCKER_REGISTRY_CORE_USERNAME}
-      BASIC_AUTH_PASSWORD: ${SERVICE_DOCKER_REGISTRY_CORE_PASSWORD}
-    depends_on:
-      - docker-registry-core-service
 
-  docker-registry-core-service:
+  docker-registry-core:
     image: whatwewant/docker-registry-core:${SERVICE_DOCKER_REGISTRY_CORE_IMAGE_VERSION}
     environment:
       OSS_ACCESS_KEY: ${SERVICE_DOCKER_REGISTRY_CORE_OSS_ACCESS_KEY}
