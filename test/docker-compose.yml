@@ -3,7 +3,7 @@ version: '3.7'
 services:
 
   docker-registry-core:
-    image: whatwewant/docker-registry-core:${SERVICE_DOCKER_REGISTRY_CORE_IMAGE_VERSION}
+    image: whatwewant/registry:${SERVICE_DOCKER_REGISTRY_CORE_IMAGE_VERSION}
     environment:
       OSS_ACCESS_KEY: ${SERVICE_DOCKER_REGISTRY_CORE_OSS_ACCESS_KEY}
       OSS_ACCESS_SECRET: ${SERVICE_DOCKER_REGISTRY_CORE_OSS_ACCESS_SECRET}
