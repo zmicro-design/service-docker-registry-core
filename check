@@ -13,6 +13,11 @@ check() {
   service::config_set SERVICE_DOCKER_REGISTRY_CORE_OSS_ACCESS_KEY text
   service::config_set SERVICE_DOCKER_REGISTRY_CORE_OSS_ACCESS_SECRET text
   service::config_set SERVICE_DOCKER_REGISTRY_CORE_OSS_REGION text
+  while [ "$(string::has internal $SERVICE_DOCKER_REGISTRY_CORE_OSS_REGION)" ]; do
+    log::error "[$(timestamp)] OSS_REGION($SERVICE_DOCKER_REGISTRY_CORE_OSS_REGION) must be public for docker client"
+    service::config_set SERVICE_DOCKER_REGISTRY_CORE_OSS_REGION text
+  done
+
   service::config_set SERVICE_DOCKER_REGISTRY_CORE_OSS_BUCKET text
 }
 
