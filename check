@@ -10,6 +10,9 @@ check() {
     cat $SERVICE_CONFIG
   fi
 
+  service::config_set SERVICE_DOCKER_REGISTRY_CORE_USERNAME text
+  service::config_set SERVICE_DOCKER_REGISTRY_CORE_PASSWORD text
+
   service::config_set SERVICE_DOCKER_REGISTRY_CORE_OSS_ACCESS_KEY text
   service::config_set SERVICE_DOCKER_REGISTRY_CORE_OSS_ACCESS_SECRET text
   service::config_set SERVICE_DOCKER_REGISTRY_CORE_OSS_REGION text
